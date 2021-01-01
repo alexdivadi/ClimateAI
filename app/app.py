@@ -26,3 +26,6 @@ def upload():
         pred = model.predict(f)
         return redirect(url_for('result',prediction = pred))
     return render_template("upload.html")
+
+if __name__ == '__main__':
+    app.run(debug=True)
