@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
-import model
+from model import CNN_Model
 
 app = Flask(__name__)
 model = CNN_Model()
