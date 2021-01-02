@@ -10,7 +10,7 @@ class CNN_Model:
     #    if exists. If not, calls the _train_model method and 
     #    saves the model
     def __init__(self):
-        self.model_fname_ = './saved_model/CNN_1'
+        self.model_fname_ = 'saved_model/CNN_1'
         try:
             self.model = load_model(self.model_fname_)
         except Exception as _:
