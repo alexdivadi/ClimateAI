@@ -1,1 +1,1 @@
-web: gunicorn --chdir ClimateAI app:app  --preload -b 0.0.0.0:5000 
+web: gunicorn start --chdir ClimateAI app:app  --preload -b 0.0.0.0:5000 
