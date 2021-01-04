@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
+from werkzeug.utils import secure_filename
 from model import CNN_Model
 
 app = Flask(__name__)
@@ -23,7 +24,10 @@ def upload():
         extension = f.filename.split(".")[-1] in ("jpg", "jpeg", "png")
         if not extension:
             return redirect(url_for('error', msg="File must be image!"))
-        pred = model.predict(f)
+        try:
+            pred = model.predict_anomaly(f)
+        except:
+            return redirect(url_for('error', msg="File must be 40x24 pixels"))
         return redirect(url_for('result',prediction = pred))
     return render_template("upload.html")
 

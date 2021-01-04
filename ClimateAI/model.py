@@ -27,9 +27,9 @@ class CNN_Model:
 
     # 5. Make a prediction based on the user-entered data
     #    Returns the predicted species with its respective probability
-    def predict_species(self, image):   
-        data = img.imread(image)
+    def predict_anomaly(self, image):   
+        data = img.imread(image)/255
         data = data.reshape(1, 40, 24, 1)
         probability = self.model.predict(data)
         prediction = np.argmax(probability)
-        return classes.get(prediction[0])
+        return classes.get(prediction)
