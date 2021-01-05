@@ -6,7 +6,7 @@ import base64
 from model import CNN_Model
 
 app = Flask(__name__)
-
+app.secret_key = "secret key"
 model = CNN_Model()
 
 @app.route("/", methods=["GET", "POST"])
