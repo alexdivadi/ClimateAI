@@ -73,11 +73,26 @@ manually. Solar Cell Health AI attempts to automate this process with the power 
             <h1>Upload Image</h1>
             <p style="text-align:center"><input type="file" id="myFile" name="filename"/></p>
             <p style="text-align:center"><input class="btn" type = "submit" value = "Submit" /></p>
-          </form>   
-        </div></div>
-        
+          </form>
+          <p>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+          </p>   
+          {% if filename %}
+            <div>
+              <img src="{{ url_for('display_image', filename=filename) }}">
+            </div>
+            {% endif %}
+          </div>
+        </div>
       </div>
-
     </div>
   </body>
 </html>
