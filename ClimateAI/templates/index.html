@@ -1,6 +1,83 @@
 <html>
-<body>
-<h3> Welcome to the website! </h3>
-<a href="/upload">Upload an image</a>
-</body>
+<head>
+  <link rel="stylesheet" href="../static/stylesheet.css">
+</head>
+  <body>
+    <div class="bg-img">
+      <div class="header animate-opacity">
+        <div class="text-header"> 
+          solarcell-health.ai<br>
+        </div>
+      </div>
+      <div class="main-content">
+<h1 style="text-align:center">About</h1>
+          <p><b>Photovoltaic Cells</b> (PV cells) are useful for gathering solar energy, 
+one of the leading resources for clean power in the world. However, a multitude of factors
+can cause solar technology to lose efficiency. By the process of inspecting a panel's 
+'thermal signature', anomalies can be detected. This is a tedious, expensive process to do
+manually. Solar Cell Health AI attempts to automate this process with the power of deep learning.
+</p>     
+<div class="column-container">
+        <!-- <a href="/upload">Upload an image<br><br><br></a> -->
+        <div class="column">  
+          <h1>Examples</h1>
+          <div class="column-container">
+            <div class="column">
+              <div class="container">
+                <img src="../static/images/No-Anomaly.jpg"/><div class="overlay">No-Anomaly</div>
+              </div>
+              <div class="container">
+                <img src="../static/images/Diode-Multi.jpg"/><div class="overlay">Diode-Multi</div>
+              </div>
+              <div class="container">
+                <img src="../static/images/Hot-Spot.jpg"/><div class="overlay">Hot-Spot</div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="container">
+                <img src="../static/images/Offline-Module.jpg"/><div class="overlay">Offline-Module</div>
+              </div>
+              <div class="container">
+                <img src="../static/images/Diode.jpg"/><div class="overlay">Diode</div>
+              </div>
+              <div class="container">
+                <img src="../static/images/Cracking.jpg"/><div class="overlay">Cracking</div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="container">
+                <img src="../static/images/Soiling.jpg"/><div class="overlay">Soiling</div>
+              </div>
+              <div class="container">
+                <img src="../static/images/Shadowing.jpg"/><div class="overlay">Shadowing</div>
+              </div>
+              <div class="container">
+                <img src="../static/images/Cell-Multi.jpg"/><div class="overlay">Cell-Multi</div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="container">
+                <img src="../static/images/Vegetation.jpg"/><div class="overlay">Vegetation</div>
+              </div>
+              <div class="container">
+                <img src="../static/images/Hot-Spot-Multi.jpg"/><div class="overlay">Hot-Spot-Multi</div>
+              </div>
+              <div class="container">
+                <img src="../static/images/Cell.jpg"/><div class="overlay">Cell</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <form action = "/" method = "post" enctype="multipart/form-data">
+            <h1>Upload Image</h1>
+            <p style="text-align:center"><input type="file" id="myFile" name="filename"/></p>
+            <p style="text-align:center"><input class="btn" type = "submit" value = "Submit" /></p>
+          </form>   
+        </div></div>
+        
+      </div>
+
+    </div>
+  </body>
 </html>
