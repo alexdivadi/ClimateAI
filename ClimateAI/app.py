@@ -24,8 +24,8 @@ def index():
         except:
             flash("File must be 40x24 pixels")
             return redirect(request.url)
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return render_template("index.html", filename=filename)
     return render_template("index.html")
 
