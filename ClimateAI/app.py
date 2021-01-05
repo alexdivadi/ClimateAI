@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from werkzeug.utils import secure_filename
+import os
 from model import CNN_Model
 
 UPLOAD_FOLDER = 'static/uploads/'
