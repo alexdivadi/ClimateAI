@@ -87,7 +87,7 @@ manually. Solar Cell Health AI attempts to automate this process with the power 
           </p>   
           {% if filename %}
             <div>
-              <img src="{{ url_for('display_image', filename=filename) }}">
+              <img src="data:image/jpeg;base64,{{ img_data }}">
             </div>
             {% endif %}
           </div>

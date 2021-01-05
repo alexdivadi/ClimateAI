@@ -1,9 +1,10 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from werkzeug.utils import secure_filename
-import os
+import io
+import base64
 from model import CNN_Model
 
-UPLOAD_FOLDER = '/app/ClimateAI/static/uploads/'
+UPLOAD_FOLDER = 'static/uploads/'
 
 app = Flask(__name__)
 app.secret_key = "secret key"
@@ -17,7 +18,7 @@ def index():
         f = request.files['filename']
         extension = f.filename.split(".")[-1] in ("jpg", "jpeg", "png")
         if not extension:
-            flash("File must be image!")
+            flash("Extension not supported")
             return redirect(request.url)
         try:
             pred = model.predict_anomaly(f)
@@ -26,15 +27,17 @@ def index():
             flash("File must be 40x24 pixels")
             return redirect(request.url)
         filename = secure_filename(f.filename)
-        f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return render_template("index.html", filename=filename)
+        data = io.BytesIO()
+        f.save(data, "JPEG")
+        encoded_img_data = base64.b64encode(data.getvalue())
+        return render_template("index.html", filename=filename, img_data=encoded_img_data.decode('utf-8'))
     return render_template("index.html")
-
+'''
 @app.route('/display/<filename>')
 def display_image(filename):
 	#print('display_image filename: ' + filename)
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
-
+'''
 @app.route("/result/<prediction>")
 def result(prediction):
     return "Predicted: %s" % prediction
