@@ -1,15 +1,12 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from werkzeug.utils import secure_filename
 import io
+from PIL import Image
 import base64
 from model import CNN_Model
 
-UPLOAD_FOLDER = 'static/uploads/'
-
 app = Flask(__name__)
-app.secret_key = "secret key"
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+
 model = CNN_Model()
 
 @app.route("/", methods=["GET", "POST"])
@@ -27,8 +24,9 @@ def index():
             flash("File must be 40x24 pixels")
             return redirect(request.url)
         filename = secure_filename(f.filename)
+        im = Image.open(f)
         data = io.BytesIO()
-        f.save(data, "JPEG")
+        im.save(data, "JPEG")
         encoded_img_data = base64.b64encode(data.getvalue())
         return render_template("index.html", filename=filename, img_data=encoded_img_data.decode('utf-8'))
     return render_template("index.html")
