@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import os
 from model import CNN_Model
 
-UPLOAD_FOLDER = 'static/uploads/'
+UPLOAD_FOLDER = '/app/ClimateAI/static/uploads/'
 
 app = Flask(__name__)
 app.secret_key = "secret key"
