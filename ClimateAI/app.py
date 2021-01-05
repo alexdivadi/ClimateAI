@@ -12,7 +12,7 @@ model = CNN_Model()
 def index():
     if request.method == 'POST':
         if 'file' not in request.files:
-	    flash('No file part')
+            flash('No file part')
             return redirect(request.url)
         f = request.files['filename']
         extension = f.filename.split(".")[-1] in ("jpg", "jpeg", "png")
