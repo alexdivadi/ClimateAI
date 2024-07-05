@@ -1,5 +1,23 @@
 # ClimateAI
+### LiveAI HIVE 2020
 
+This project is a Solar Panel Anomaly AI Classification app made for LiveAI's HIVE program.
+The image data used to train the CNN in this model can be found here: https://github.com/RaptorMaps/InfraredSolarModules
+
+
+The model is a multiclass DNN classifier. It achieved an AUC score of about 0.915.
+
+## Set Up
+This app originally was hosted on Heroku. You can run the app as a local Flask server.
+
+
+After setting up a virtualenv, navigate to the `src` directory and run:
+```python
+flask run
+```
+
+
+## Schedule
 | Task | Description | Date |
 |:------:|:-------:|:------:|
 |Create Data Directory|Acquire data and create directory|11/27/20|
